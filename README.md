@@ -1,2 +1,3 @@
-# side-project-temp-repository
-사이드프로젝트 임시 레포(name, desc 수정예정)
+# zu-story
+
+주류 커뮤니티 zu story
