@@ -4,10 +4,9 @@ import com.zustory.domain.dto.SampleListResponseDto;
 import com.zustory.domain.dto.SampleResponseDto;
 import com.zustory.domain.dto.SampleSaveRequestDto;
 import com.zustory.service.SampleService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 @RestController

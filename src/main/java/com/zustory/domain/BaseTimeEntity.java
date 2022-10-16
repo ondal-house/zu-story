@@ -1,19 +1,16 @@
 package com.zustory.domain;
 
+import java.time.LocalDateTime;
+import javax.persistence.MappedSuperclass;
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
-
-import javax.persistence.MappedSuperclass;
-import java.time.LocalDateTime;
 
 @Getter
 @MappedSuperclass
 public abstract class BaseTimeEntity {
 
-    @CreatedDate
-    private LocalDateTime createdDate;
+    @CreatedDate private LocalDateTime createdDate;
 
-    @LastModifiedDate
-    private LocalDateTime modifiedDate;
+    @LastModifiedDate private LocalDateTime modifiedDate;
 }

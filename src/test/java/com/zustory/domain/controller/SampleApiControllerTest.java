@@ -1,10 +1,11 @@
 package com.zustory.domain.controller;
 
-import com.zustory.domain.dto.SampleListResponseDto;
+import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
+
 import com.zustory.domain.dto.SampleSaveRequestDto;
 import com.zustory.domain.sample.Sample;
 import com.zustory.domain.sample.SampleRepository;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,23 +17,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
-
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class SampleApiControllerTest {
 
-    @LocalServerPort
-    private int port;
+    @LocalServerPort private int port;
 
-    @Autowired
-    private TestRestTemplate restTemplate;
+    @Autowired private TestRestTemplate restTemplate;
 
-    @Autowired
-    private SampleRepository sampleRepository;
+    @Autowired private SampleRepository sampleRepository;
 
     @AfterEach
     public void tearDown() {
@@ -41,17 +34,19 @@ class SampleApiControllerTest {
 
     @Test
     void save() {
-        //given
+        // given
         String title = "sample 타이틀";
         String content = "sample content";
 
-        SampleSaveRequestDto requestDto = SampleSaveRequestDto.builder().title(title).content(content).build();
+        SampleSaveRequestDto requestDto =
+                SampleSaveRequestDto.builder().title(title).content(content).build();
         String url = "http://localhost:" + port + "/api/v1/sample";
 
-        //when
-        ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, requestDto, Long.class);
+        // when
+        ResponseEntity<Long> responseEntity =
+                restTemplate.postForEntity(url, requestDto, Long.class);
 
-        //then
+        // then
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isPositive();
 
@@ -61,10 +56,8 @@ class SampleApiControllerTest {
     }
 
     @Test
-    void findAllDesc() {
-    }
+    void findAllDesc() {}
 
     @Test
-    void findById() {
-    }
+    void findById() {}
 }

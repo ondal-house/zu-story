@@ -1,11 +1,10 @@
 package com.zustory.domain.sample;
 
 import com.zustory.domain.BaseTimeEntity;
+import javax.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor

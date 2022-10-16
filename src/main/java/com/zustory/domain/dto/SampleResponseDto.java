@@ -1,9 +1,8 @@
 package com.zustory.domain.dto;
 
 import com.zustory.domain.sample.Sample;
-import lombok.Getter;
-
 import java.time.LocalDateTime;
+import lombok.Getter;
 
 @Getter
 public class SampleResponseDto {

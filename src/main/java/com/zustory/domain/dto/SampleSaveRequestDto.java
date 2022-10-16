@@ -8,11 +8,13 @@ public class SampleSaveRequestDto {
     private String title;
 
     private String content;
+
     @Builder
     public SampleSaveRequestDto(String title, String content) {
         this.title = title;
         this.content = content;
     }
+
     public Sample toEntity() {
         return Sample.builder().title(title).content(content).build();
     }

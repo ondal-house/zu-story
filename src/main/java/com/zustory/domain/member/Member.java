@@ -1,8 +1,7 @@
 package com.zustory.domain.member;
 
-import javax.persistence.*;
-
 import com.zustory.domain.BaseTimeEntity;
+import javax.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

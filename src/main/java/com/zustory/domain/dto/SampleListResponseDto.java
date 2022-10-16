@@ -1,7 +1,6 @@
 package com.zustory.domain.dto;
 
 import com.zustory.domain.sample.Sample;
-
 import java.time.LocalDateTime;
 
 public class SampleListResponseDto {
