@@ -1,9 +1,10 @@
 spring:
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: Mysql@1234
-    url: jdbc:mysql://localhost:3306/tempdb?createDatabaseIfNotExist=true&serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://localhost:3306/zustorydb?createDatabaseIfNotExist=true&serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false
 
   jpa:
     hibernate:

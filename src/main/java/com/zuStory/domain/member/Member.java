@@ -1,10 +1,9 @@
 package com.zuStory.domain.member;
 
+import javax.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
@@ -22,6 +21,4 @@ public class Member {
     public Member(String name) {
         this.name = name;
     }
-
 }
-

@@ -1,65 +1,86 @@
 plugins {
-	id 'org.springframework.boot' version '2.7.4'
-	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
-	id 'org.asciidoctor.convert' version '1.5.8'
-	id 'java'
+  id 'org.springframework.boot' version '2.7.4'
+  id 'io.spring.dependency-management' version '1.0.14.RELEASE'
+  id 'org.asciidoctor.convert' version '1.5.8'
+  id 'java'
+  id "com.diffplug.spotless" version "6.7.1"
 }
 
 group = 'com.zuStory.'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+sourceCompatibility = '11'
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+  compileOnly {
+    extendsFrom annotationProcessor
+  }
 }
 
 repositories {
-	mavenCentral()
+  mavenCentral()
 }
 
 ext {
-	set('snippetsDir', file("build/generated-snippets"))
+  set('snippetsDir', file("build/generated-snippets"))
 }
 
 dependencies {
 
-	//application
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+  //application
+  implementation 'org.springframework.boot:spring-boot-starter-web'
 
-	//lombok
-	annotationProcessor 'org.projectlombok:lombok'
-	compileOnly 'org.projectlombok:lombok'
+  //lombok
+  annotationProcessor 'org.projectlombok:lombok'
+  compileOnly 'org.projectlombok:lombok'
 
-	// mySql
-	implementation 'mysql:mysql-connector-java'
+  // mySql
+  implementation 'mysql:mysql-connector-java'
 
-	//test
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+  //test
+  testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-	//flyway
-	implementation 'org.flywaydb:flyway-core'
+  //flyway
+  implementation 'org.flywaydb:flyway-mysql'
 
-	//jpa
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+  //jpa
+  implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
-	//h2
-//	compile(
+  //jdbc
+  implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 
-	//restDocs
-	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+  //h2
+  runtimeOnly 'com.h2database:h2'
 
-	//hot swap
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+  //restDocs
+  testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+
+  //hot swap
+  developmentOnly 'org.springframework.boot:spring-boot-devtools'
+}
+
+spotless {
+  java {
+    importOrder 'java', 'javax', 'org', 'com', ''
+    removeUnusedImports()
+    googleJavaFormat('1.9').aosp()
+    indentWithSpaces(4)
+    trimTrailingWhitespace()
+    endWithNewline()
+  }
+  format 'misc', {
+    target '**/*.yml', '**/*.gradle', '**/*.md', '**/*.gitignore'
+    indentWithSpaces(2)
+    trimTrailingWhitespace()
+    endWithNewline()
+  }
 }
 
 tasks.named('test') {
-	outputs.dir snippetsDir
-	useJUnitPlatform()
+  outputs.dir snippetsDir
+  useJUnitPlatform()
 }
 
 tasks.named('asciidoctor') {
-	inputs.dir snippetsDir
-	dependsOn test
+  inputs.dir snippetsDir
+  dependsOn test
 }

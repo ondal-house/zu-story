@@ -2,10 +2,9 @@ package com.zuStory.service;
 
 import com.zuStory.domain.dto.MemberSaveRequestDto;
 import com.zuStory.domain.member.MemberRepository;
+import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
 
 @RequiredArgsConstructor
 @Service
