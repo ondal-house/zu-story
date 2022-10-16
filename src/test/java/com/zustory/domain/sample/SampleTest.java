@@ -40,4 +40,20 @@ class SampleTest {
         assertThat(sample.getContent()).isEqualTo(content);
     }
 
+    @Test
+    void 샘플_저장_단건조회() {
+        String title = "sample 제목";
+        String content = "sample 내용";
+
+        Sample save = sampleRepository.save(Sample.builder().title(title).content(content).build());
+
+        //when
+        Sample sample = sampleRepository.findById(save.getId())
+                .orElseThrow(() -> new IllegalArgumentException("해당 ID가 없습니다."));
+
+        //then
+        assertThat(sample.getTitle()).isEqualTo(title);
+        assertThat(sample.getContent()).isEqualTo(content);
+    }
+
 }
