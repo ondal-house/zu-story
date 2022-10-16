@@ -56,6 +56,9 @@ dependencies {
 
   //hot swap
   developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+  testImplementation 'org.assertj:assertj-core'
+
 }
 
 spotless {
