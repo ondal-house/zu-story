@@ -1,6 +1,6 @@
-package com.zuStory.domain.dto;
+package com.zustory.domain.dto;
 
-import com.zuStory.domain.member.Member;
+import com.zustory.domain.member.Member;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

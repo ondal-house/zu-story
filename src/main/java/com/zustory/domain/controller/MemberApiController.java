@@ -1,7 +1,7 @@
-package com.zuStory.domain.controller;
+package com.zustory.domain.controller;
 
-import com.zuStory.domain.dto.MemberSaveRequestDto;
-import com.zuStory.service.MemberService;
+import com.zustory.domain.dto.MemberSaveRequestDto;
+import com.zustory.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

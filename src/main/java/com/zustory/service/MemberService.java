@@ -1,7 +1,7 @@
-package com.zuStory.service;
+package com.zustory.service;
 
-import com.zuStory.domain.dto.MemberSaveRequestDto;
-import com.zuStory.domain.member.MemberRepository;
+import com.zustory.domain.dto.MemberSaveRequestDto;
+import com.zustory.domain.member.MemberRepository;
 import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
