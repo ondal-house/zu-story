@@ -65,7 +65,7 @@ spotless {
   java {
     importOrder 'java', 'javax', 'org', 'com', ''
     removeUnusedImports()
-    googleJavaFormat('1.9').aosp()
+    googleJavaFormat('1.15.0').aosp()
     indentWithSpaces(4)
     trimTrailingWhitespace()
     endWithNewline()
