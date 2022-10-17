@@ -1,10 +1,9 @@
 package com.zustory.domain.dto;
 
 import com.zustory.domain.sample.Sample;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
 import java.time.LocalDateTime;
+import lombok.Getter;
+
 @Getter
 public class SampleListResponseDto {
     private Long id;
