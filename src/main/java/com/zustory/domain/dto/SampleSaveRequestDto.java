@@ -2,7 +2,11 @@ package com.zustory.domain.dto;
 
 import com.zustory.domain.sample.Sample;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@Getter
+@NoArgsConstructor
 public class SampleSaveRequestDto {
 
     private String title;
