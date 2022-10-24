@@ -32,11 +32,9 @@ public class SampleService {
 
     @Transactional(readOnly = true)
     public SampleResponseDto findById(Long id) {
-        Sample sample =
-                sampleRepository
-                        .findById(id)
-                        .orElseThrow(
-                                () -> new IllegalArgumentException("존재하지 않는 sample입니다. id:" + id));
+        Sample sample = sampleRepository
+                .findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 sample입니다. id:" + id));
         return new SampleResponseDto(sample);
     }
 }

@@ -21,11 +21,14 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class SampleApiControllerTest {
 
-    @LocalServerPort private int port;
+    @LocalServerPort
+    private int port;
 
-    @Autowired private TestRestTemplate restTemplate;
+    @Autowired
+    private TestRestTemplate restTemplate;
 
-    @Autowired private SampleRepository sampleRepository;
+    @Autowired
+    private SampleRepository sampleRepository;
 
     @AfterEach
     public void tearDown() {
@@ -43,8 +46,7 @@ class SampleApiControllerTest {
         String url = "http://localhost:" + port + "/api/v1/sample";
 
         // when
-        ResponseEntity<Long> responseEntity =
-                restTemplate.postForEntity(url, requestDto, Long.class);
+        ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, requestDto, Long.class);
 
         // then
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
