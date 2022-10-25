@@ -9,3 +9,13 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
+
+management:
+  endpoints:
+    web:
+      base-path: /api
+      path-mapping:
+        health: healthcheck
+  endpoint:
+    health:
+      show-details: never
