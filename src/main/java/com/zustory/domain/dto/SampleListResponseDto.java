@@ -14,6 +14,6 @@ public class SampleListResponseDto {
     public SampleListResponseDto(Sample entity) {
         this.id = entity.getId();
         this.title = entity.getTitle();
-        this.createdDate = entity.getCreatedDate();
+        this.createdDate = entity.getCreatedAt();
     }
 }

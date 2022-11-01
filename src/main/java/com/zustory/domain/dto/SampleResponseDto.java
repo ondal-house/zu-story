@@ -17,6 +17,6 @@ public class SampleResponseDto {
         this.id = entity.getId();
         this.title = entity.getTitle();
         this.content = entity.getContent();
-        this.createdDate = entity.getCreatedDate();
+        this.createdDate = entity.getCreatedAt();
     }
 }
