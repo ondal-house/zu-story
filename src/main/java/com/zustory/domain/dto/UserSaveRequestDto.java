@@ -1,21 +1,21 @@
 package com.zustory.domain.dto;
 
-import com.zustory.domain.member.Member;
+import com.zustory.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class MemberSaveRequestDto {
+public class UserSaveRequestDto {
     private String name;
 
     @Builder
-    public MemberSaveRequestDto(String name) {
+    public UserSaveRequestDto(String name) {
         this.name = name;
     }
 
-    public Member toEntity() {
-        return Member.builder().name(name).build();
+    public User toEntity() {
+        return User.builder().name(name).build();
     }
 }
