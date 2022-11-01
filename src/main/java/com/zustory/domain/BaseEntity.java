@@ -1,8 +1,8 @@
 package com.zustory.domain;
 
+import com.zustory.domain.user.User;
 import java.time.LocalDateTime;
-import javax.persistence.EntityListeners;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -16,14 +16,20 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public abstract class BaseEntity {
 
     @CreatedBy
-    private Long createdBy;
+    @ManyToOne
+    @JoinColumn(name = "created_by")
+    private User createdUser;
 
     @LastModifiedBy
-    private Long modifiedBy;
+    @ManyToOne
+    @JoinColumn(name = "modified_by")
+    private User modifiedUser;
 
     @CreatedDate
+    @Column(nullable = false)
     private LocalDateTime createdAt;
 
     @LastModifiedDate
+    @Column(nullable = false)
     private LocalDateTime modifiedAt;
 }
