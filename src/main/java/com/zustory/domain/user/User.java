@@ -17,7 +17,11 @@ public class User extends BaseEntity {
     private Long id;
 
     private String loginId;
+
+    @Column(name = "user_name")
     private String name;
+
+    private String profileImage;
 
     @Builder
     public User(String name) {
