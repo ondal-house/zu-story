@@ -1,6 +1,6 @@
 package com.zustory.domain.sample;
 
-import com.zustory.domain.BaseTimeEntity;
+import com.zustory.domain.BaseEntity;
 import javax.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Sample extends BaseTimeEntity {
+public class Sample extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
