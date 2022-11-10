@@ -1,16 +1,13 @@
 package com.zustory.service;
 
-import java.util.List;
-
-import javax.transaction.Transactional;
-
-import org.springframework.stereotype.Service;
-
-import com.zustory.domain.category.Category;
 import com.zustory.domain.category.CategoryRepository;
+import com.zustory.domain.dto.CategoryResponseDto;
 import com.zustory.domain.dto.CategorySaveRequestDto;
-
+import java.util.List;
+import java.util.stream.Collectors;
+import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 @Service
@@ -23,7 +20,9 @@ public class CategoryService {
         return categoryRepository.save(requestDto.toEntity()).getId();
     }
 
-    public List<Category> getAllCategories() {
-        return categoryRepository.findAll();
+    public List<CategoryResponseDto> getAllCategories() {
+        return categoryRepository.findAll().stream()
+                .map(CategoryResponseDto::new)
+                .collect(Collectors.toList());
     }
 }
