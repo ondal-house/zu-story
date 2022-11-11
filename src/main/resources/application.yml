@@ -8,7 +8,13 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
+    generate-ddl: true
+
+  flyway:
+    locations: classpath:/db/migration/common, classpath:/db/migration/test
+    enabled: false
+
 
 management:
   endpoints:
