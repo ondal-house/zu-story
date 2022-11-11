@@ -6,7 +6,6 @@ import static org.mockito.BDDMockito.*;
 import com.zustory.domain.beverage.Beverage;
 import com.zustory.domain.beverage.BeverageRepository;
 import com.zustory.domain.dto.BeverageResponseDto;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -15,7 +14,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -73,11 +71,11 @@ class BeverageServiceTest {
                 .contents(contents)
                 .build();
 
-        Pageable pageable = PageRequest.of(0,5);
+        Pageable pageable = PageRequest.of(0, 5);
         List<Beverage> beverageList = new ArrayList<>();
         beverageList.add(beverageMock);
 
-        Page<Beverage> beveragePageMock =  new PageImpl<>(beverageList);
+        Page<Beverage> beveragePageMock = new PageImpl<>(beverageList);
 
         given(beverageRepository.findAll(pageable)).willReturn(beveragePageMock);
 
