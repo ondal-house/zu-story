@@ -1,7 +1,6 @@
 package com.zustory.domain.dto;
 
 import com.zustory.domain.beverage.Beverage;
-import com.zustory.domain.category.Category;
 import lombok.Getter;
 
 @Getter
@@ -19,7 +18,7 @@ public class BeverageResponseDto {
 
     private String imageUrl;
 
-    private Category category;
+    private CategoryResponseDto category;
 
     public BeverageResponseDto(Beverage beverage) {
         this.id = beverage.getId();
@@ -28,6 +27,6 @@ public class BeverageResponseDto {
         this.abv = beverage.getAbv();
         this.contents = beverage.getContents();
         this.imageUrl = beverage.getImageUrl();
-        this.category = beverage.getCategory();
+        this.category = new CategoryResponseDto(beverage.getCategory());
     }
 }
