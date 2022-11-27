@@ -1,5 +1,6 @@
 package com.zustory.domain.user;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.zustory.domain.BaseEntity;
 import com.zustory.domain.board.Board;
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class User extends BaseEntity {
     private String profileImage;
 
     @OneToMany(mappedBy = "user")
+    @JsonBackReference
     private List<Board> boards = new ArrayList<>();
 
     @Builder

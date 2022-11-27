@@ -1,5 +1,6 @@
 package com.zustory.domain.category;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.zustory.domain.BaseEntity;
 import com.zustory.domain.beverage.Beverage;
 import com.zustory.domain.board.Board;
@@ -25,5 +26,6 @@ public class Category extends BaseEntity {
     private List<Beverage> beverages = new ArrayList<>();
 
     @OneToMany(mappedBy = "category")
+    @JsonBackReference
     private List<Board> boards = new ArrayList<>();
 }
