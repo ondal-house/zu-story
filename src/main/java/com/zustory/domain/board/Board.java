@@ -5,14 +5,14 @@ import com.zustory.domain.BaseEntity;
 import com.zustory.domain.category.Category;
 import com.zustory.domain.user.User;
 import javax.persistence.*;
-import org.hibernate.annotations.Comment;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Comment;
 
 @Getter
 @NoArgsConstructor
 @Entity
-public class Board extends BaseEntity{
+public class Board extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "board_id")
@@ -36,5 +36,4 @@ public class Board extends BaseEntity{
     @JsonManagedReference
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
-    
 }
