@@ -1,6 +1,9 @@
 package com.zustory.domain.user;
 
 import com.zustory.domain.BaseEntity;
+import com.zustory.domain.board.Board;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,6 +25,9 @@ public class User extends BaseEntity {
     private String name;
 
     private String profileImage;
+
+    @OneToMany(mappedBy = "user")
+    private List<Board> boards = new ArrayList<>();
 
     @Builder
     public User(String name) {
