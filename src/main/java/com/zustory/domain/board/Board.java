@@ -25,7 +25,7 @@ public class Board extends BaseEntity {
     private String contents;
 
     @Comment("게시글 조회 수")
-    private int views;
+    private Integer views;
 
     @ManyToOne
     @JsonManagedReference

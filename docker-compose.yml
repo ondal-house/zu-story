@@ -10,7 +10,7 @@ services:
     ports:
     - "3306:3306"
     platform: linux/x86_64
-    command: mysql --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --lower_case_table_names=0  --default-time-zone="+09:00"
+    command: mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --lower_case_table_names=0  --default-time-zone="+09:00"
 
 networks:
   default:
