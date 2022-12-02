@@ -5,14 +5,24 @@ spring:
       path: /h2-console
 
   datasource:
-    url: jdbc:h2:~/test;MODE=MySQL;AUTO_SERVER=true;
-    driver-class-name: org.h2.Driver
-    username: sa
-    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Mysql@1234
+    url: jdbc:mysql://localhost:3306/zustorydb?createDatabaseIfNotExist=true&serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false
+
+#  datasource:
+#    url: jdbc:h2:~/test;MODE=MySQL;AUTO_SERVER=true;
+#    driver-class-name: org.h2.Driver
+#    username: sa
+#    password: 1234
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    generate-ddl: true
+
+  flyway:
+    enabled: false
