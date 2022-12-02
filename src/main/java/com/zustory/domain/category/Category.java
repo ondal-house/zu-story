@@ -3,6 +3,7 @@ package com.zustory.domain.category;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.zustory.domain.BaseEntity;
 import com.zustory.domain.beverage.Beverage;
+import com.zustory.domain.board.Board;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
@@ -26,4 +27,8 @@ public class Category extends BaseEntity {
     @OneToMany(mappedBy = "category")
     @JsonBackReference
     private List<Beverage> beverages = new ArrayList<>();
+
+    @OneToMany(mappedBy = "category")
+    @JsonBackReference
+    private List<Board> boards = new ArrayList<>();
 }

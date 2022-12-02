@@ -1,6 +1,10 @@
 package com.zustory.domain.user;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.zustory.domain.BaseEntity;
+import com.zustory.domain.board.Board;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -26,6 +30,10 @@ public class User extends BaseEntity {
 
     @Comment("사용자 이미지 url")
     private String profileImage;
+
+    @OneToMany(mappedBy = "user")
+    @JsonBackReference
+    private List<Board> boards = new ArrayList<>();
 
     @Builder
     public User(String name) {
