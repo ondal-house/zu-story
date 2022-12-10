@@ -7,6 +7,7 @@ import lombok.Getter;
 public class CategoryResponseDto {
 
     private Long id;
+
     private String type;
 
     public CategoryResponseDto(Category category) {

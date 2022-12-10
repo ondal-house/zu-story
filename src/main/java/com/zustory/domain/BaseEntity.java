@@ -13,6 +13,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseEntity {
 
+
     //    @CreatedBy
     @ManyToOne
     @JoinColumn(name = "created_by")
