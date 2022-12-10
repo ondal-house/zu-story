@@ -13,12 +13,13 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseEntity {
 
-    // @CreatedBy
+
+    //    @CreatedBy
     @ManyToOne
     @JoinColumn(name = "created_by")
     private User createdUser;
 
-    // @LastModifiedBy
+    //    @LastModifiedBy
     @ManyToOne
     @JoinColumn(name = "modified_by")
     private User modifiedUser;
