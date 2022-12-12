@@ -26,3 +26,11 @@ spring:
 
   flyway:
     enabled: false
+
+springdoc:
+  swagger-ui:
+    enabled: true
+    version: 'v1'
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+  model-and-view-allowed: true
